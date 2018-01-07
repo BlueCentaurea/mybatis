@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import cn.jason.mybatis.entity.User;
 
-public class MybatisTest03 {
+public class AddTest {
 	// 根据id查询用户信息，得到一条记录结果
 	@Test
 	public void findUserByIdTest() throws IOException {
@@ -28,7 +28,7 @@ public class MybatisTest03 {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		// 创建对象
-		User user = new User("八云紫", new Date(), "1", "幻想乡");
+		User user = new User("希尔维亚", new Date(), "1", "帝国第九天区");
 
 		// 通过SQLSession操作数据库
 		// 第一个参数：映射文件select的id，等于namespace+"."+statement的id

@@ -9,9 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
-import cn.jason.mybatis.entity.User;
-
-public class MybatisTest01 {
+public class DeleteTest {
 	// 根据id查询用户信息，得到一条记录结果
 	@Test
 	public void findUserByIdTest() throws IOException {
@@ -29,10 +27,11 @@ public class MybatisTest01 {
 		// 通过SQLSession操作数据库
 		// 第一个参数：映射文件select的id，等于namespace+"."+statement的id
 		// 第二个参数：指定和映射文件中所匹配的paramenterType类型的参数
-		// SQLSession.selectOne结果是映射文件中所匹配的ResultType类型的对象
-		User user = sqlSession.selectOne("test.findUserById", 2);
-		System.out.println("findUserById---------" + user);
+		sqlSession.delete("test.deleteUserById", 1);
 
+		// 提交事务
+		sqlSession.commit();
+		
 		// 释放资源
 		sqlSession.close();
 	}
